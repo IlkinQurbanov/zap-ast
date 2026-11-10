@@ -6,7 +6,7 @@
   const TP = window.TP;
   const esc = TP.esc;
   const MONO = "IBM Plex Mono, ui-monospace, Menlo, monospace";
-  const DISPLAY = "Manrope, system-ui, sans-serif";
+  const DISPLAY = "Archivo, Arial, sans-serif";
 
   const svg = (label, inner, vb = "0 0 400 400") =>
     `<svg viewBox="${vb}" role="img" aria-label="${esc(label)}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">${inner}</svg>`;
@@ -215,12 +215,33 @@
   }
 
   /** Views available for a product (used by the gallery). */
-  TP.mediaViews = (p) =>
-    p.category === "tyres"
+  TP.mediaViews = (p) => {
+    // Real photos first (when provided in data), then the data-driven views
+    if (p.images && p.images.length) {
+      const photos = p.images.map((_, i) => ({ key: `photo-${i}`, label: p.images.length > 1 ? `Görünüş ${i + 1}` : "Məhsul şəkli" }));
+      return p.category === "tyres"
+        ? [...photos, { key: "tread", label: "Protektor" }, { key: "label", label: "EU etiketi" }]
+        : [...photos, { key: "spec", label: "Texniki lövhə" }];
+    }
+    return p.category === "tyres"
       ? [{ key: "main", label: "Yan görünüş" }, { key: "tread", label: "Protektor" }, { key: "label", label: "EU etiketi" }]
       : [{ key: "main", label: "Əsas görünüş" }, { key: "spec", label: "Texniki lövhə" }];
+  };
 
-  TP.media = (p, view = "main") => {
+  /* A broken photo falls back to the generated illustration of the same product. */
+  document.addEventListener("error", (e) => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.classList.contains("media-img")) return;
+    const p = TP.data && TP.data.byId(img.dataset.mediaId);
+    img.outerHTML = TP.media(p, "main", { svgOnly: true });
+  }, true);
+
+  TP.media = (p, view = "main", { svgOnly = false } = {}) => {
+    if (p && !svgOnly && p.images && p.images.length && (view === "main" || /^photo-\d+$/.test(view))) {
+      const i = view === "main" ? 0 : Number(view.split("-")[1]);
+      const alt = `${p.name}${p.size ? " " + p.size : ""}${i ? " — foto " + (i + 1) : ""}`;
+      return `<img class="media-img" src="${esc(p.images[i] || p.images[0])}" alt="${esc(alt)}" loading="lazy" decoding="async" data-media-id="${esc(p.id)}">`;
+    }
     if (!p) return svg("Şəkil yoxdur", `<rect x="60" y="60" width="280" height="280" rx="20" fill="none" stroke="#9AA6B2" stroke-dasharray="8 8"/><text x="200" y="206" text-anchor="middle" font-family="${DISPLAY}" font-size="16" fill="#9AA6B2">Şəkil yoxdur</text>`);
     const id = TP.uid("m");
     const label = `${p.name}${p.size ? " " + p.size : ""}`;
@@ -234,7 +255,8 @@
         case "batteries": return svg(label, battery(p));
         case "rims": return svg(label, `<ellipse cx="200" cy="388" rx="140" ry="8" fill="#000" opacity=".15"/>${rimGroup(id, 200, 200, 178, p.finishKey)}`);
         case "oils": return svg(label, oil(p));
-        case "parts": return svg(label, part(p));
+        case "parts":
+        case "brakes": return svg(label, part(p));
         default: return TP.media(null);
       }
     } catch (e) {

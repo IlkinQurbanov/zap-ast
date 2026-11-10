@@ -73,6 +73,7 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><ol>
         <li><a href="index.html">Ana səhifə</a></li>
         <li><a href="catalog.html?cat=${esc(p.category)}">${esc(TP.data.catName(p.category))}</a></li>
+        ${p.sub && TP.data.subName(p.category, p.sub) ? `<li><a href="catalog.html?cat=${esc(p.category)}&sub=${esc(p.sub)}">${esc(TP.data.subName(p.category, p.sub))}</a></li>` : ""}
         <li><span aria-current="page">${esc(p.name)}</span></li>
       </ol></nav>
       <div class="pdp">

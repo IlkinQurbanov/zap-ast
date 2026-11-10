@@ -605,3 +605,17 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .cat-card { border: 0; box-shadow: var(--shadow-sm); }
 .stock::before { box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 18%, transparent); }
 .link { color: var(--link); }
+.media-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.badge--new { background: var(--cobalt); color: #FFFFFF; }
+.chip--sale { color: var(--accent-strong); border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
+.chip--sale[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+/* ---- Yellow accents ---- */
+.badge--sale { background: var(--yellow); color: var(--on-yellow); }
+.btn--dark { background: #0E1726; color: #FFFFFF; }
+.btn--dark:hover { background: #1E2B40; }
+.btn--yellow { background: var(--yellow); color: var(--on-yellow); }
+.btn--yellow:hover { background: var(--yellow-strong); }
+.announce { background: var(--yellow); color: var(--on-yellow); font-size: var(--fs-xs); font-weight: 600; }
+.announce__inner { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 32px; text-align: center; padding-block: 4px; }
+.announce a { color: inherit; font-weight: 800; }

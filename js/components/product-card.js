@@ -18,13 +18,20 @@
   TP.stockBadge = (p) => {
     if (p.stock <= 0) return '<span class="stock stock--out">Stokda yoxdur</span>';
     if (p.stock <= 6) return `<span class="stock stock--low">Az qalıb · ${p.stock} əd.</span>`;
-    return '<span class="stock stock--in">Stokda var</span>';
+    return `<span class="stock stock--in">Stokda · ${p.stock} əd.</span>`;
   };
 
   TP.seasonBadge = (p) => {
     if (p.category !== "tyres") return "";
     const s = TP.data.SEASON[p.season];
     return `<span class="badge badge--${p.season}">${TP.icon(s.icon, 13)}${esc(s.label)}</span>`;
+  };
+
+  /* "Yeni" = the 8 most recently added products (demo ordering field `added`). */
+  let newIds = null;
+  TP.isNew = (p) => {
+    if (!newIds) newIds = new Set(TP.data.products.slice().sort((a, b) => b.added - a.added).slice(0, 8).map((x) => x.id));
+    return newIds.has(p.id);
   };
 
   TP.discount = (p) => (p.oldPrice && p.oldPrice > p.price ? Math.round((1 - p.price / p.oldPrice) * 100) : 0);
@@ -77,6 +84,7 @@
     return `
     <article class="pcard" data-id="${esc(p.id)}">
       <div class="pcard__badges">
+        ${TP.isNew(p) ? '<span class="badge badge--new">Yeni</span>' : ""}
         ${off ? `<span class="badge badge--sale">−${off}%</span>` : ""}
         ${TP.seasonBadge(p)}
       </div>

@@ -58,6 +58,9 @@
     drop: '<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/>',
     volume: '<path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/>',
     map: '<path d="m9 4-6 2v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/>',
+    brake: '<circle cx="11" cy="13" r="7.5"/><circle cx="11" cy="13" r="2"/><path d="M16 5.5a9 9 0 0 1 3.5 4.5M17.5 3.5 21 7"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/>',
+    play: '<path d="M8 5v14l11-7L8 5Z"/>',
     car: '<path d="M3 13l2-6a2 2 0 0 1 1.9-1.4h10.2A2 2 0 0 1 19 7l2 6v5h-2.5M3 13v5h2.5M3 13h18"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/>',
   };
 
@@ -66,11 +69,7 @@
 
   TP.logoMark = () =>
     `<svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
-      <circle cx="20" cy="20" r="18" fill="#0B1220" stroke="#FF5A1F" stroke-width="2.5"/>
-      <g stroke="#FF5A1F" stroke-width="2.4" stroke-linecap="round">
-        <path d="M20 4.5v4M20 31.5v4M4.5 20h4M31.5 20h4M9 9l2.8 2.8M28.2 28.2 31 31M9 31l2.8-2.8M28.2 11.8 31 9"/>
-      </g>
-      <circle cx="20" cy="20" r="8" fill="#F2F5F8"/>
-      <path d="M16.5 16.5h7l-7 7h7" fill="none" stroke="#0E1726" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="1" y="1" width="38" height="38" rx="9" fill="#FFC928"/>
+      <path d="M12.5 12.5h15l-15 15h15" fill="none" stroke="#111418" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>`;
 })();

@@ -6,7 +6,7 @@
   const PAGE_SIZE = 9;
   const LIST_KEYS = ["brand", "w", "p", "d", "season", "fuel", "wet", "ah", "tech", "visc", "vol", "otype"];
   // Category-specific filters, reset when the category changes
-  const CAT_KEYS = ["w", "p", "d", "season", "fuel", "wet", "rf", "noise", "ah", "tech", "visc", "vol", "otype"];
+  const CAT_KEYS = ["sub", "w", "p", "d", "season", "fuel", "wet", "rf", "noise", "ah", "tech", "visc", "vol", "otype"];
 
   const SORTS = {
     rec: { label: "Tövsiyə olunan", fn: (a, b) => (b.stock > 0) - (a.stock > 0) || b.popularity - a.popularity },
@@ -22,9 +22,10 @@
     const q = TP.params();
     const s = { cat: q.get("cat") || "", q: q.get("q") || "", fav: q.get("fav") === "1", car: q.get("car") || "",
       min: q.get("min") || "", max: q.get("max") || "", stock: q.get("stock") === "1", rf: q.get("rf") === "1",
-      noise: q.get("noise") || "", sort: SORTS[q.get("sort")] ? q.get("sort") : "rec" };
+      noise: q.get("noise") || "", sub: q.get("sub") || "", sale: q.get("sale") === "1", sort: SORTS[q.get("sort")] ? q.get("sort") : "rec" };
     LIST_KEYS.forEach((k) => { s[k] = (q.get(k) || "").split(",").filter(Boolean); });
     if (!TP.data.categories.some((c) => c.id === s.cat && c.id !== "services")) s.cat = "";
+    if (!(TP.data.subcats[s.cat] || []).some((x) => x.id === s.sub)) s.sub = "";
     // A typed tyre size in search becomes structured filters
     const size = s.q ? TP.parseSize(s.q) : null;
     if (size) {
@@ -37,9 +38,9 @@
 
   function writeState() {
     const q = new URLSearchParams();
-    ["cat", "q", "car", "min", "max", "noise"].forEach((k) => { if (state[k]) q.set(k, state[k]); });
+    ["cat", "sub", "q", "car", "min", "max", "noise"].forEach((k) => { if (state[k]) q.set(k, state[k]); });
     if (state.sort !== "rec") q.set("sort", state.sort);
-    ["fav", "stock", "rf"].forEach((k) => { if (state[k]) q.set(k, "1"); });
+    ["fav", "stock", "rf", "sale"].forEach((k) => { if (state[k]) q.set(k, "1"); });
     LIST_KEYS.forEach((k) => { if (state[k].length) q.set(k, state[k].join(",")); });
     const str = q.toString();
     try { window.history.replaceState(null, "", str ? `?${str}` : window.location.pathname); } catch (e) { /* sandboxed */ }
@@ -51,6 +52,8 @@
     let list = TP.data.products.slice();
     if (state.fav) list = list.filter((p) => TP.fav.has(p.id));
     if (state.cat) list = list.filter((p) => p.category === state.cat);
+    if (state.sub) list = list.filter((p) => p.sub === state.sub);
+    if (state.sale) list = list.filter((p) => p.oldPrice && p.oldPrice > p.price);
     if (state.q) list = TP.searchProducts(state.q, list);
     if (ignore !== "brand") list = list.filter((p) => inList(state.brand, p.brand));
     const min = Number(state.min), max = Number(state.max);
@@ -84,6 +87,14 @@
     const brandBase = filtered("brand");
     const brands = Array.from(new Set(scope.map((p) => p.brand)));
     let html = "";
+    const subs = TP.data.subcats[state.cat];
+    if (subs) {
+      const base = TP.data.products.filter((p) => p.category === state.cat);
+      html += group("Növ", [{ id: "", name: "Hamısı" }, ...subs].map((x) => {
+        const n = x.id ? base.filter((p) => p.sub === x.id).length : base.length;
+        return `<label class="check"><input type="radio" name="f-sub" data-sub value="${x.id}" ${state.sub === x.id ? "checked" : ""}>${esc(x.name)}<span class="check__count">${n}</span></label>`;
+      }).join(""));
+    }
     if (state.cat === "tyres") {
       const o = TP.tyreSizeOptions();
       html += group("En (mm)", chipGroup("w", o.widths), { chips: true });
@@ -127,6 +138,8 @@
     const chips = [];
     const add = (label, key, value) => chips.push(`<button type="button" class="chip chip--remove" data-remove="${key}" data-value="${esc(value || "")}">${esc(label)}${TP.icon("close", 14)}<span class="sr-only">filtri sil</span></button>`);
     if (state.q) add(`"${state.q}"`, "q");
+    if (state.sale) add("Kampaniya", "sale");
+    if (state.sub) add(TP.data.subName(state.cat, state.sub), "sub");
     if (state.car) add(state.car, "car");
     state.w.forEach((v) => add(`En ${v}`, "w", v));
     state.p.forEach((v) => add(`Profil ${v}`, "p", v));
@@ -151,6 +164,8 @@
 
   function titleText() {
     if (state.fav) return "Favoritlər";
+    if (state.sale) return state.cat ? `Kampaniyalar · ${TP.data.catName(state.cat)}` : "Kampaniyalar";
+    if (state.sub && !state.car && !state.q) return TP.data.subName(state.cat, state.sub);
     if (state.car) return `${state.car} üçün ${(state.cat ? TP.data.catName(state.cat) : "məhsullar").toLocaleLowerCase("az")}`;
     if (state.q) return `"${state.q}" üzrə axtarış`;
     return state.cat ? TP.data.catName(state.cat) : "Bütün məhsullar";
@@ -167,12 +182,21 @@
     els.chips.innerHTML = chipsMarkup();
     els.sort.value = state.sort;
     TP.$$("[data-cat-tab]", els.tabs).forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.catTab === state.cat)));
+    const saleTab = TP.$("[data-sale-tab]", els.tabs);
+    if (saleTab) saleTab.setAttribute("aria-pressed", String(state.sale));
     TP.$$("[data-apply-count]").forEach((b) => { b.textContent = `${list.length} nəticəni göstər`; });
 
     if (!list.length) {
       els.grid.innerHTML = "";
       els.more.hidden = true;
       els.empty.hidden = false;
+      const emptySection = state.sub && !TP.data.products.some((p) => p.category === state.cat && p.sub === state.sub);
+      if (emptySection) {
+        els.empty.querySelector("h2").textContent = "Bu bölmədə hələ məhsul yoxdur";
+        els.empty.querySelector("p").textContent = "Məhsullar kataloqa əlavə olunanda burada görünəcək. Digər bölmələrə baxın.";
+        writeState();
+        return;
+      }
       els.empty.querySelector("h2").textContent = state.fav && !TP.fav.count() ? "Hələ favorit məhsul yoxdur" : "Uyğun məhsul tapılmadı";
       els.empty.querySelector("p").textContent = state.fav && !TP.fav.count()
         ? "Məhsul kartındakı ürək ikonuna basaraq bəyəndiyiniz məhsulları burada saxlayın."
@@ -192,9 +216,10 @@
 
   /* ---------- Events ---------- */
   function wire() {
-    els.tabs.innerHTML = `<button type="button" class="chip" data-cat-tab="">Hamısı</button>` +
+    els.tabs.innerHTML = `<button type="button" class="chip" data-cat-tab="">Hamısı</button><button type="button" class="chip chip--sale" data-sale-tab aria-pressed="false">% Kampaniyalar</button>` +
       TP.data.categories.filter((c) => c.id !== "services").map((c) => `<button type="button" class="chip" data-cat-tab="${c.id}">${TP.icon(c.icon, 16)}${esc(c.name)}</button>`).join("");
     els.tabs.addEventListener("click", (e) => {
+      if (e.target.closest("[data-sale-tab]")) { state.sale = !state.sale; refresh(); return; }
       const b = e.target.closest("[data-cat-tab]");
       if (!b) return;
       setCategory(b.dataset.catTab);
@@ -221,6 +246,7 @@
       } else if (t.matches("[data-flag]")) { state[t.dataset.flag] = t.checked; render(); }
       else if (t.matches("[data-noise]")) { state.noise = t.value; render(); }
       else if (t.matches("[data-cat]")) { setCategory(t.value); }
+      else if (t.matches("[data-sub]")) { state.sub = t.value; render(); }
       else if (t.matches("[data-price]")) { state[t.dataset.price] = t.value.trim(); render(); }
     });
     els.filters.addEventListener("input", TP.debounce((e) => {
@@ -289,7 +315,7 @@
     refresh();
   }
   function readStateEmpty() {
-    const s = { cat: "", q: "", fav: false, car: "", min: "", max: "", stock: false, rf: false, noise: "", sort: "rec" };
+    const s = { cat: "", q: "", fav: false, car: "", min: "", max: "", stock: false, rf: false, noise: "", sub: "", sale: false, sort: "rec" };
     LIST_KEYS.forEach((k) => { s[k] = []; });
     return s;
   }

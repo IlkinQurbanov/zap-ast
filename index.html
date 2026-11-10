@@ -14,11 +14,10 @@
 <meta property="og:url" content="https://zapcast.az/">
 <meta property="og:locale" content="az_AZ">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B1220">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2718%27 fill=%27%230B1220%27 stroke=%27%23FF5A1F%27 stroke-width=%273%27/%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%277%27 fill=%27%23F2F5F8%27/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap">
+<meta name="theme-color" content="#FFC928">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2718%27 fill=%27%23FFC928%27/%3E%3Cpath d=%27M13 13h14L13 27h14%27 fill=%27none%27 stroke=%27%23111418%27 stroke-width=%273.6%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/variables.css">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/base.css">
@@ -26,6 +25,7 @@
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/pages.css">
 <link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/theme.css">
 </head>
 <body>
 <div data-component="header"></div>
@@ -33,10 +33,47 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero__inner">
     <div class="hero__copy">
-      <p class="eyebrow">Təkər · Akkumulyator · Mühərrik yağı</p>
-      <h1 id="hero-title">Avtomobilinizə uyğun təkər, akkumulyator və yağ</h1>
-      <p class="hero__lede">Ölçüyə, tutuma, özlülüyə və ya sadəcə avtomobilinizin markasına görə seçin. Çatdırılmanı, filialdan götürməni və quraşdırma vaxtını bir sifarişdə qeyd edin.</p>
-      <div class="finder" data-finder>
+      <div class="slider" data-slider aria-roledescription="karusel" aria-label="Kampaniyalar">
+        <div class="slider__slides" aria-live="off">
+          <div class="slide is-active" data-tone="yellow" data-art="0" role="group" aria-roledescription="slayd" aria-label="1 / 4">
+            <p class="eyebrow">Təkər · Akkumulyator · Mühərrik yağı</p>
+            <h1 id="hero-title">Avtomobilinizə uyğun təkər, akkumulyator və yağ</h1>
+            <p class="hero__lede">Ölçüyə, tutuma, özlülüyə və ya avtomobilinizin markasına görə seçin. Çatdırılmanı, filialdan götürməni və quraşdırma vaxtını bir sifarişdə qeyd edin.</p>
+            <div class="cluster"><a class="btn btn--primary btn--lg" href="catalog.html">Kataloqa bax</a><a class="btn btn--on-band btn--lg" href="catalog.html?sale=1"><span data-icon="percent" data-size="18"></span>Kampaniyalar</a></div>
+          </div>
+          <div class="slide" data-tone="sky" data-art="1" role="group" aria-roledescription="slayd" aria-label="2 / 4">
+            <p class="eyebrow">Qış kampaniyası · Noyabr</p>
+            <h2 class="slide__title">Qış təkərlərində 11%-dək endirim</h2>
+            <p class="hero__lede">Seçilmiş qış modelləri kampaniya qiyməti ilə. Quraşdırma və balans vaxtını eyni sifarişdə seçin.</p>
+            <div class="cluster"><a class="btn btn--dark btn--lg" href="catalog.html?cat=tyres&amp;season=winter"><span data-icon="snow" data-size="18"></span>Qış təkərlərinə bax</a><a class="btn btn--on-band btn--lg" href="booking.html?service=mount">Quraşdırma vaxtı seç</a></div>
+          </div>
+          <div class="slide" data-tone="grey" data-art="2" role="group" aria-roledescription="slayd" aria-label="3 / 4">
+            <p class="eyebrow">Akkumulyatorlar</p>
+            <h2 class="slide__title">Soyuq səhərdə də ilk cəhddə start</h2>
+            <p class="hero__lede">Standart, EFB və AGM akkumulyatorlar — start-stop sistemli avtomobillər daxil. Filialda quraşdırma bir neçə dəqiqə çəkir.</p>
+            <div class="cluster"><a class="btn btn--primary btn--lg" href="catalog.html?cat=batteries"><span data-icon="battery" data-size="18"></span>Akkumulyatorlara bax</a><a class="btn btn--on-band btn--lg" href="booking.html?service=battery">Quraşdırmaya yazıl</a></div>
+          </div>
+          <div class="slide" data-tone="mint" data-art="3" role="group" aria-roledescription="slayd" aria-label="4 / 4">
+            <p class="eyebrow">Mühərrik yağları</p>
+            <h2 class="slide__title">Yağ və filtr — bir vizitdə dəyişmə</h2>
+            <p class="hero__lede">0W-20-dən 10W-40-a qədər mühərrik yağları, transmissiya mayeləri və filtrlər. Dəyişməni filialda onlayn rezerv edin.</p>
+            <div class="cluster"><a class="btn btn--primary btn--lg" href="catalog.html?cat=oils"><span data-icon="oil" data-size="18"></span>Yağlara bax</a><a class="btn btn--on-band btn--lg" href="booking.html?service=oil">Yağ dəyişməyə yazıl</a></div>
+          </div>
+        </div>
+        <div class="slider__controls">
+          <button type="button" class="slider__btn" data-slide-prev aria-label="Əvvəlki slayd"><span data-icon="chevron-left" data-size="20"></span></button>
+          <div class="slider__dots" role="group" aria-label="Slayd seçimi">
+            <button type="button" aria-label="1-ci slayd" aria-current="true" data-slide-to="0"></button>
+            <button type="button" aria-label="2-ci slayd" data-slide-to="1"></button>
+            <button type="button" aria-label="3-cü slayd" data-slide-to="2"></button>
+            <button type="button" aria-label="4-cü slayd" data-slide-to="3"></button>
+          </div>
+          <button type="button" class="slider__btn" data-slide-next aria-label="Növbəti slayd"><span data-icon="chevron-right" data-size="20"></span></button>
+          <span class="slider__count mono" data-slide-count>01 / 04</span>
+          <button type="button" class="slider__btn slider__pause" data-slide-pause aria-label="Avtomatik keçidi dayandır" aria-pressed="false"><span data-icon="minus" data-size="16"></span></button>
+        </div>
+      </div>
+      <div class="finder" id="finder" data-finder>
         <div class="seg seg--4" role="tablist" aria-label="Nə axtarırsınız?">
           <button type="button" role="tab" id="tab-size" aria-controls="panel-size" aria-selected="true"><span data-icon="tyre" data-size="18"></span>Təkər</button>
           <button type="button" role="tab" id="tab-bat" aria-controls="panel-bat" aria-selected="false" tabindex="-1"><span data-icon="battery" data-size="18"></span>Akkumulyator</button>
@@ -114,14 +151,12 @@
       </ul>
     </div>
     <div class="hero__visual">
-      <div class="hero__trio" data-hero-trio aria-hidden="true">
-        <span class="hero__trio-tyre"></span><span class="hero__trio-oil"></span><span class="hero__trio-battery"></span>
+      <div class="hero__art" data-slider-art aria-hidden="true">
+        <div class="art is-active" data-art-panel="0"><img class="art__main" src="assets/images/products/t2.webp" alt=""><img class="art__b" src="assets/images/products/b8.webp" alt=""><img class="art__c" src="assets/images/products/o1.webp" alt=""></div>
+        <div class="art" data-art-panel="1"><img class="art__hero" src="assets/images/products/t7.webp" alt=""><span class="art__tag">−11%</span></div>
+        <div class="art" data-art-panel="2"><img class="art__main art__main--wide" src="assets/images/products/b5.webp" alt=""><img class="art__b art__b--low" src="assets/images/products/b4.webp" alt=""></div>
+        <div class="art" data-art-panel="3"><img class="art__main art__main--narrow" src="assets/images/products/o5.webp" alt=""><img class="art__b art__b--small" src="assets/images/products/p1.webp" alt=""><img class="art__c art__c--low" src="assets/images/products/o4.webp" alt=""></div>
       </div>
-      <dl class="need-strip" aria-label="Seçim üçün bilməli olduğunuz 3 göstərici">
-        <div><dt>Təkər ölçüsü</dt><dd class="mono">205/55 R16</dd><span>yan divarda yazılır</span></div>
-        <div><dt>Akkumulyator</dt><dd class="mono">60 Ah</dd><span>tutum, etiketdə yazılır</span></div>
-        <div><dt>Yağ özlülüyü</dt><dd class="mono">5W-30</dd><span>istifadəçi kitabçasında</span></div>
-      </dl>
     </div>
   </div>
 </section>
@@ -130,6 +165,23 @@
   <div class="container">
     <div class="section-head"><div class="section-head__text"><h2 id="cats-title">Kateqoriyalar</h2><p>Təkər, akkumulyator və mühərrik yağı əsas çeşidimizdir — üstəlik disklər, ehtiyat hissələri və servis.</p></div></div>
     <div class="bento" data-categories></div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="prod-title">
+  <div class="container">
+    <h2 class="sr-only" id="prod-title">Məhsullar</h2>
+    <div class="product-tabs" data-product-tabs>
+      <div class="product-tabs__bar">
+        <div class="seg-tabs" role="tablist" aria-label="Məhsul seçimi">
+          <button type="button" role="tab" id="pt-sale" aria-controls="pt-panel" aria-selected="true" data-ptab="sale"><span data-icon="percent" data-size="16"></span>Endirimli məhsullar</button>
+          <button type="button" role="tab" id="pt-best" aria-controls="pt-panel" aria-selected="false" tabindex="-1" data-ptab="best"><span data-icon="star" data-size="16"></span>Ən çox satılanlar</button>
+          <button type="button" role="tab" id="pt-new" aria-controls="pt-panel" aria-selected="false" tabindex="-1" data-ptab="new"><span data-icon="tag" data-size="16"></span>Yeni məhsullar</button>
+        </div>
+        <a class="link" href="catalog.html?sale=1" data-ptab-all>Hamısına bax →</a>
+      </div>
+      <div class="product-grid" id="pt-panel" role="tabpanel" aria-labelledby="pt-sale" data-ptab-grid></div>
+    </div>
   </div>
 </section>
 
@@ -156,42 +208,10 @@
   </div>
 </section>
 
-<section class="section section--flush-top" aria-labelledby="pop-title">
-  <div class="container">
-    <div class="section-head"><div class="section-head__text"><h2 id="pop-title">Populyar məhsullar</h2><p>Ən çox baxılan və stokda olan modellər — kateqoriya seçin.</p></div><a class="link" href="catalog.html?sort=popular" data-popular-link>Hamısına bax →</a></div>
-    <div class="chip-row popular-tabs" role="group" aria-label="Kateqoriya" data-popular-tabs>
-      <button type="button" class="chip" aria-pressed="true" data-pop="">Hamısı</button>
-      <button type="button" class="chip" aria-pressed="false" data-pop="tyres"><span data-icon="tyre" data-size="16"></span>Təkərlər</button>
-      <button type="button" class="chip" aria-pressed="false" data-pop="batteries"><span data-icon="battery" data-size="16"></span>Akkumulyatorlar</button>
-      <button type="button" class="chip" aria-pressed="false" data-pop="oils"><span data-icon="oil" data-size="16"></span>Yağlar</button>
-    </div>
-    <div class="product-grid" data-popular aria-live="polite"></div>
-  </div>
-</section>
-
-<section class="section section--flush-top" aria-labelledby="sale-title">
-  <div class="container">
-    <div class="section-head"><div class="section-head__text"><h2 id="sale-title">Endirimli məhsullar</h2><p>Köhnə qiymət üstündən xətt çəkilərək göstərilir. Prototipdə qiymətlər nümunədir.</p></div><a class="link" href="catalog.html">Kataloqa keç →</a></div>
-    <div class="product-grid" data-sale></div>
-  </div>
-</section>
-
-<section class="section section--flush-top" aria-labelledby="brands-title">
+<section class="section section--flush-top" id="brands" aria-labelledby="brands-title">
   <div class="container">
     <div class="section-head"><div class="section-head__text"><h2 id="brands-title">Brendlər</h2><p>Prototipdə brend adları nümunədir — real brendlər kataloq inteqrasiyası ilə gələcək.</p></div></div>
     <div class="brand-strip" data-brands></div>
-  </div>
-</section>
-
-<section class="section section--flush-top" aria-labelledby="why-title">
-  <div class="container">
-    <div class="section-head"><div class="section-head__text"><h2 id="why-title">Niyə Zapçast?</h2></div></div>
-    <div class="why">
-      <div class="why__item"><span class="why__icon"><span data-icon="box" data-size="28"></span></span><h3>Geniş məhsul çeşidi</h3><p>Təkər, disk, akkumulyator, yağ və ehtiyat hissələri bir kataloqda, ölçü və avtomobil filtrləri ilə.</p></div>
-      <div class="why__item"><span class="why__icon"><span data-icon="store" data-size="28"></span></span><h3>Filialdan götürmə</h3><p>Sifarişi yaxın filialdan pulsuz götürün, istəsəniz elə orada quraşdırın.</p></div>
-      <div class="why__item"><span class="why__icon"><span data-icon="truck" data-size="28"></span></span><h3>Ünvana çatdırılma</h3><p>Təkər dəstini qapınıza qədər çatdırırıq. Tarif sifariş zamanı aydın göstərilir.</p></div>
-      <div class="why__item"><span class="why__icon"><span data-icon="shield" data-size="28"></span></span><h3>Zəmanət və dəstək</h3><p>Hər məhsulun zəmanət şərti kartında yazılıb, sualınız olanda dəstək komandası kömək edir.</p></div>
-    </div>
   </div>
 </section>
 
@@ -202,6 +222,18 @@
       <a class="btn btn--primary btn--lg" href="booking.html"><span data-icon="calendar" data-size="18"></span>Rezervasiya et</a>
     </div>
     <div class="service-tiles" data-service-tiles></div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head"><div class="section-head__text"><h2 id="why-title">Üstünlüklərimiz</h2></div></div>
+    <div class="why">
+      <div class="why__item"><span class="why__icon"><span data-icon="shield" data-size="26"></span></span><h3>Orijinal məhsullar</h3><p>Məhsullar rəsmi təchizat kanallarından, istehsalçı sənədləri ilə gəlir.</p></div>
+      <div class="why__item"><span class="why__icon"><span data-icon="truck" data-size="26"></span></span><h3>Sürətli və etibarlı çatdırılma</h3><p>Bakıda və regionlara çatdırılma, ya da filialdan pulsuz götürmə.</p></div>
+      <div class="why__item"><span class="why__icon"><span data-icon="doc" data-size="26"></span></span><h3>Rəsmi zəmanət</h3><p>Hər məhsulun zəmanət şərti kartında yazılıb, müraciətlərə dəstək komandası baxır.</p></div>
+      <div class="why__item"><span class="why__icon"><span data-icon="card" data-size="26"></span></span><h3>Rahat ödəniş</h3><p>Kart, nağd və taksit kartları ilə hissə-hissə ödəniş imkanı (demo şərtlər).</p></div>
+    </div>
   </div>
 </section>
 
@@ -227,6 +259,35 @@
   <div class="container">
     <div class="section-head"><div class="section-head__text"><h2 id="blog-title">Faydalı məqalələr</h2><p>Təkər, akkumulyator və yağ seçimi haqqında qısa bələdçilər.</p></div></div>
     <div class="grid-4" data-articles></div>
+  </div>
+</section>
+
+<section class="section section--flush-top" id="video" aria-labelledby="video-title">
+  <div class="container">
+    <div class="section-head"><div class="section-head__text"><h2 id="video-title">Video</h2><p>Təkər seçimi və servis haqqında qısa videolar.</p></div><button type="button" class="link link-btn" data-video-all>Hamısına bax →</button></div>
+    <div class="grid-3" data-videos></div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="seo-title">
+  <div class="container">
+    <article class="seo-text panel">
+      <h2 id="seo-title">Zapçast.az — təkər satışı, razval, yağ dəyişmə və akkumulyatorlar</h2>
+      <p>Zapçast.az Azərbaycanda sürücülər üçün onlayn avtomobil məhsulları portalıdır: minik, SUV, elektromobil və kommersiya təkərləri, akkumulyatorlar, disklər, mühərrik və transmissiya yağları, əyləc bəndləri və ehtiyat hissələri bir kataloqda.</p>
+      <details class="seo-text__more">
+        <summary><span class="seo-text__open">Hamısını oxu +</span><span class="seo-text__close">Bağla −</span></summary>
+        <div class="prose">
+          <h3>Geniş təkər seçimi və düzgün ölçü</h3>
+          <p>Yay təkərləri isti havada quru və yaş asfaltda dəqiq idarəetmə verir. Qış təkərləri +7 °C-dən aşağı temperaturda, qar və buzda tutuşu artırır. 4 fəsil təkərləri mülayim iqlimdə il boyu istifadə üçün kompromis seçimdir. Ölçüyə, avtomobilə və mövsümə görə filtrlər düzgün təkəri tez tapmağa kömək edir.</p>
+          <h3>Disklər</h3>
+          <p>Alüminium ərinti, polad və döymə disklər həm görünüş, həm də idarəetmə üçün seçilir. Disk seçərkən diametr, en, PCD, ET və mərkəz dəliyi (DIA) avtomobilə uyğun olmalıdır.</p>
+          <h3>Mühərrik yağları və akkumulyatorlar</h3>
+          <p>Yağ seçimində istehsalçının tövsiyə etdiyi özlülük (məsələn 5W-30) və standart əsasdır. Akkumulyator seçərkən tutum (Ah), soyuq start cərəyanı (A) və texnologiya — standart, EFB və ya AGM — avtomobilin sisteminə uyğun olmalıdır.</p>
+          <h3>Çatdırılma və ödəniş</h3>
+          <p>Bakıda və regionlara çatdırılma, ya da filialdan götürmə mümkündür. Ödəniş kartla onlayn, təhvil zamanı nağd və ya taksit kartları ilə edilə bilər. Prototipdə tariflər və şərtlər nümunədir.</p>
+        </div>
+      </details>
+    </article>
   </div>
 </section>
 </main>

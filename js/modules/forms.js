@@ -49,6 +49,7 @@
     if (!v) return "";
     if (rule === "email" && !RX.email.test(v)) return "E-mail ünvanını ad@domen.az formatında yazın.";
     if (rule === "phone" && !RX.phone.test(digits(v))) return "Telefonu +994 50 123 45 67 formatında yazın.";
+    if (rule === "local-phone" && !/^0?\d{9}$/.test(digits(v))) return "Nömrəni 50 123 45 67 formatında yazın.";
     if (rule === "login" && !RX.email.test(v) && !RX.phone.test(digits(v))) return "E-mail və ya +994 ilə başlayan telefon nömrəsi yazın.";
     if (input.minLength > 0 && v.length < input.minLength) return `Ən azı ${input.minLength} simvol olmalıdır.`;
     if (input.type === "number" && v) {
