@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zapçast.az — təkər, akkumulyator və servis</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Təkər, akkumulyator və mühərrik yağını ölçüyə, tutuma, özlülüyə və ya avtomobilinizin markasına görə tapın, servis vaxtını onlayn rezerv edin.">
+<link rel="canonical" href="https://zapcast.az/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zapçast.az">
+<meta property="og:title" content="Zapçast.az — təkər, akkumulyator və servis">
+<meta property="og:description" content="Təkər, akkumulyator və mühərrik yağını ölçüyə, tutuma, özlülüyə və ya avtomobilinizin markasına görə tapın, servis vaxtını onlayn rezerv edin.">
+<meta property="og:url" content="https://zapcast.az/">
+<meta property="og:locale" content="az_AZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2718%27 fill=%27%230B1220%27 stroke=%27%23FF5A1F%27 stroke-width=%273%27/%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%277%27 fill=%27%23F2F5F8%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div data-component="header"></div>
+<main id="main" data-page="home" tabindex="-1">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">Təkər · Akkumulyator · Mühərrik yağı</p>
+      <h1 id="hero-title">Avtomobilinizə uyğun təkər, akkumulyator və yağ</h1>
+      <p class="hero__lede">Ölçüyə, tutuma, özlülüyə və ya sadəcə avtomobilinizin markasına görə seçin. Çatdırılmanı, filialdan götürməni və quraşdırma vaxtını bir sifarişdə qeyd edin.</p>
+      <div class="finder" data-finder>
+        <div class="seg seg--4" role="tablist" aria-label="Nə axtarırsınız?">
+          <button type="button" role="tab" id="tab-size" aria-controls="panel-size" aria-selected="true"><span data-icon="tyre" data-size="18"></span>Təkər</button>
+          <button type="button" role="tab" id="tab-bat" aria-controls="panel-bat" aria-selected="false" tabindex="-1"><span data-icon="battery" data-size="18"></span>Akkumulyator</button>
+          <button type="button" role="tab" id="tab-oil" aria-controls="panel-oil" aria-selected="false" tabindex="-1"><span data-icon="oil" data-size="18"></span>Yağ</button>
+          <button type="button" role="tab" id="tab-car" aria-controls="panel-car" aria-selected="false" tabindex="-1"><span data-icon="car" data-size="18"></span>Avtomobilə görə</button>
+        </div>
+        <div role="tabpanel" id="panel-size" aria-labelledby="tab-size">
+          <form id="finder-size" class="stack" action="catalog.html" data-finder-form="tyres">
+            <div class="finder__fields">
+              <div class="field"><label for="fs-width">En</label><select class="select" id="fs-width" name="w"></select></div>
+              <div class="field"><label for="fs-profile">Profil</label><select class="select" id="fs-profile" name="p"></select></div>
+              <div class="field"><label for="fs-diameter">Diametr</label><select class="select" id="fs-diameter" name="d"></select></div>
+            </div>
+            <fieldset class="finder__season">
+              <legend class="sr-only">Mövsüm</legend>
+              <label class="chip chip--radio"><input type="radio" name="season" value="" checked>Hamısı</label>
+              <label class="chip chip--radio"><input type="radio" name="season" value="summer"><span data-icon="sun" data-size="16"></span>Yay</label>
+              <label class="chip chip--radio"><input type="radio" name="season" value="winter"><span data-icon="snow" data-size="16"></span>Qış</label>
+              <label class="chip chip--radio"><input type="radio" name="season" value="all"><span data-icon="season" data-size="16"></span>4 fəsil</label>
+            </fieldset>
+            <button class="btn btn--primary btn--lg btn--block" type="submit"><span data-icon="search" data-size="20"></span>Uyğun təkərləri tap</button>
+            <p class="finder__note" data-finder-count aria-live="polite"></p>
+          </form>
+        </div>
+        <div role="tabpanel" id="panel-bat" aria-labelledby="tab-bat" hidden>
+          <form id="finder-bat" class="stack" action="catalog.html" data-finder-form="batteries">
+            <div class="finder__fields finder__fields--2">
+              <div class="field"><label for="fb-ah">Tutum</label><select class="select" id="fb-ah" name="ah"></select></div>
+              <div class="field"><label for="fb-pol">Polyarlıq</label><select class="select" id="fb-pol" name="pol"><option value="">Fərqi yoxdur</option><option>Sağ (+)</option><option>Sol (+)</option></select></div>
+            </div>
+            <fieldset class="finder__season">
+              <legend class="sr-only">Texnologiya</legend>
+              <label class="chip chip--radio"><input type="radio" name="tech" value="" checked>Hamısı</label>
+              <label class="chip chip--radio"><input type="radio" name="tech" value="Standart">Standart</label>
+              <label class="chip chip--radio"><input type="radio" name="tech" value="EFB">EFB · start-stop</label>
+              <label class="chip chip--radio"><input type="radio" name="tech" value="AGM">AGM</label>
+            </fieldset>
+            <button class="btn btn--primary btn--lg btn--block" type="submit"><span data-icon="search" data-size="20"></span>Uyğun akkumulyatorları tap</button>
+            <p class="finder__note" data-finder-count aria-live="polite"></p>
+          </form>
+        </div>
+        <div role="tabpanel" id="panel-oil" aria-labelledby="tab-oil" hidden>
+          <form id="finder-oil" class="stack" action="catalog.html" data-finder-form="oils">
+            <div class="finder__fields finder__fields--2">
+              <div class="field"><label for="fo-visc">Özlülük (SAE)</label><select class="select" id="fo-visc" name="visc"></select></div>
+              <div class="field"><label for="fo-type">Növ</label><select class="select" id="fo-type" name="otype"></select></div>
+            </div>
+            <fieldset class="finder__season">
+              <legend class="sr-only">Həcm</legend>
+              <label class="chip chip--radio"><input type="radio" name="vol" value="" checked>İstənilən həcm</label>
+              <label class="chip chip--radio"><input type="radio" name="vol" value="4">4 L · tam dəyişmə</label>
+              <label class="chip chip--radio"><input type="radio" name="vol" value="1">1 L · tamamlama</label>
+            </fieldset>
+            <button class="btn btn--primary btn--lg btn--block" type="submit"><span data-icon="search" data-size="20"></span>Uyğun yağları tap</button>
+            <p class="finder__note" data-finder-count aria-live="polite"></p>
+          </form>
+        </div>
+        <div role="tabpanel" id="panel-car" aria-labelledby="tab-car" hidden>
+          <form id="finder-vehicle" class="stack" action="catalog.html">
+            <div class="finder__fields finder__fields--vehicle">
+              <div class="field"><label for="fv-make">Marka</label><select class="select" id="fv-make"></select></div>
+              <div class="field"><label for="fv-model">Model</label><select class="select" id="fv-model"></select></div>
+              <div class="field"><label for="fv-year">İl</label><select class="select" id="fv-year"></select></div>
+            </div>
+            <div class="vehicle-needs" data-vehicle-result aria-live="polite">
+              <p class="finder__note">Marka, model və ili seçin — təkər ölçüsünü, akkumulyator tutumunu və yağ özlülüyünü göstərəcəyik.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <ul class="hero__trust" role="list">
+        <li><span data-icon="check" data-size="16"></span>Filialdan pulsuz götürmə</li>
+        <li><span data-icon="check" data-size="16"></span>Ünvana çatdırılma</li>
+        <li><span data-icon="check" data-size="16"></span>Quraşdırma və yağ dəyişməsi filialda</li>
+      </ul>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__trio" data-hero-trio aria-hidden="true">
+        <span class="hero__trio-tyre"></span><span class="hero__trio-oil"></span><span class="hero__trio-battery"></span>
+      </div>
+      <dl class="need-strip" aria-label="Seçim üçün bilməli olduğunuz 3 göstərici">
+        <div><dt>Təkər ölçüsü</dt><dd class="mono">205/55 R16</dd><span>yan divarda yazılır</span></div>
+        <div><dt>Akkumulyator</dt><dd class="mono">60 Ah</dd><span>tutum, etiketdə yazılır</span></div>
+        <div><dt>Yağ özlülüyü</dt><dd class="mono">5W-30</dd><span>istifadəçi kitabçasında</span></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="cats-title">
+  <div class="container">
+    <div class="section-head"><div class="section-head__text"><h2 id="cats-title">Kateqoriyalar</h2><p>Təkər, akkumulyator və mühərrik yağı əsas çeşidimizdir — üstəlik disklər, ehtiyat hissələri və servis.</p></div></div>
+    <div class="bento" data-categories></div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="promo-title">
+  <div class="container">
+    <div class="promo">
+      <div class="promo__copy">
+        <p class="eyebrow">Mövsümi kampaniya · Noyabr</p>
+        <h2 id="promo-title">Avtomobili qışa hazırlayın</h2>
+        <p>Soyuq havada üç şey ilk sınağa çəkilir: təkərin tutuşu, akkumulyatorun start gücü və yağın axıcılığı. Üçünü də bir sifarişdə yeniləyin, quraşdırma və yağ dəyişməsini filialda edin.</p>
+        <div class="promo__facts">
+          <div class="promo__fact"><b>+7 °C</b><span>qış təkərinə keçid həddi</span></div>
+          <div class="promo__fact"><b>12,6 V</b><span>sağlam akkumulyatorun gərginliyi</span></div>
+          <div class="promo__fact"><b>0W / 5W</b><span>soyuqda tez axan yağ</span></div>
+        </div>
+        <div class="cluster">
+          <a class="btn btn--primary btn--lg" href="catalog.html?cat=tyres&amp;season=winter"><span data-icon="snow" data-size="18"></span>Qış təkərləri</a>
+          <a class="btn btn--on-band btn--lg" href="catalog.html?cat=batteries"><span data-icon="battery" data-size="18"></span>Akkumulyatorlar</a>
+          <a class="btn btn--on-band btn--lg" href="catalog.html?cat=oils"><span data-icon="oil" data-size="18"></span>Yağlar</a>
+        </div>
+      </div>
+      <div class="promo__art" data-winter-art></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="pop-title">
+  <div class="container">
+    <div class="section-head"><div class="section-head__text"><h2 id="pop-title">Populyar məhsullar</h2><p>Ən çox baxılan və stokda olan modellər — kateqoriya seçin.</p></div><a class="link" href="catalog.html?sort=popular" data-popular-link>Hamısına bax →</a></div>
+    <div class="chip-row popular-tabs" role="group" aria-label="Kateqoriya" data-popular-tabs>
+      <button type="button" class="chip" aria-pressed="true" data-pop="">Hamısı</button>
+      <button type="button" class="chip" aria-pressed="false" data-pop="tyres"><span data-icon="tyre" data-size="16"></span>Təkərlər</button>
+      <button type="button" class="chip" aria-pressed="false" data-pop="batteries"><span data-icon="battery" data-size="16"></span>Akkumulyatorlar</button>
+      <button type="button" class="chip" aria-pressed="false" data-pop="oils"><span data-icon="oil" data-size="16"></span>Yağlar</button>
+    </div>
+    <div class="product-grid" data-popular aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="sale-title">
+  <div class="container">
+    <div class="section-head"><div class="section-head__text"><h2 id="sale-title">Endirimli məhsullar</h2><p>Köhnə qiymət üstündən xətt çəkilərək göstərilir. Prototipdə qiymətlər nümunədir.</p></div><a class="link" href="catalog.html">Kataloqa keç →</a></div>
+    <div class="product-grid" data-sale></div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="brands-title">
+  <div class="container">
+    <div class="section-head"><div class="section-head__text"><h2 id="brands-title">Brendlər</h2><p>Prototipdə brend adları nümunədir — real brendlər kataloq inteqrasiyası ilə gələcək.</p></div></div>
+    <div class="brand-strip" data-brands></div>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-head"><div class="section-head__text"><h2 id="why-title">Niyə Zapçast?</h2></div></div>
+    <div class="why">
+      <div class="why__item"><span class="why__icon"><span data-icon="box" data-size="28"></span></span><h3>Geniş məhsul çeşidi</h3><p>Təkər, disk, akkumulyator, yağ və ehtiyat hissələri bir kataloqda, ölçü və avtomobil filtrləri ilə.</p></div>
+      <div class="why__item"><span class="why__icon"><span data-icon="store" data-size="28"></span></span><h3>Filialdan götürmə</h3><p>Sifarişi yaxın filialdan pulsuz götürün, istəsəniz elə orada quraşdırın.</p></div>
+      <div class="why__item"><span class="why__icon"><span data-icon="truck" data-size="28"></span></span><h3>Ünvana çatdırılma</h3><p>Təkər dəstini qapınıza qədər çatdırırıq. Tarif sifariş zamanı aydın göstərilir.</p></div>
+      <div class="why__item"><span class="why__icon"><span data-icon="shield" data-size="28"></span></span><h3>Zəmanət və dəstək</h3><p>Hər məhsulun zəmanət şərti kartında yazılıb, sualınız olanda dəstək komandası kömək edir.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="service-band" aria-labelledby="svc-title">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__text"><p class="eyebrow">Servis</p><h2 id="svc-title">Quraşdırmadan yağ dəyişməsinə qədər</h2><p>Xidməti seçin, filialı və boş saatı onlayn qeyd edin.</p></div>
+      <a class="btn btn--primary btn--lg" href="booking.html"><span data-icon="calendar" data-size="18"></span>Rezervasiya et</a>
+    </div>
+    <div class="service-tiles" data-service-tiles></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="b2b-title">
+  <div class="container">
+    <div class="b2b-banner">
+      <div>
+        <p class="eyebrow">Korporativ müştərilər</p>
+        <h2 id="b2b-title">Avtoparkınız üçün təchizat və servis</h2>
+        <ul class="b2b-banner__list" role="list">
+          <li><span data-icon="check" data-size="16"></span>Topdan sifariş</li><li><span data-icon="check" data-size="16"></span>Şirkətə özəl qiymətlər</li>
+          <li><span data-icon="check" data-size="16"></span>Müqavilə əsasında əməkdaşlıq</li><li><span data-icon="check" data-size="16"></span>Şəxsi satış meneceri</li>
+        </ul>
+      </div>
+      <div class="b2b-banner__actions">
+        <a class="btn btn--ink btn--lg" href="business.html"><span data-icon="building" data-size="18"></span>Korporativ müraciət</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--flush-top" id="blog" aria-labelledby="blog-title">
+  <div class="container">
+    <div class="section-head"><div class="section-head__text"><h2 id="blog-title">Faydalı məqalələr</h2><p>Təkər, akkumulyator və yağ seçimi haqqında qısa bələdçilər.</p></div></div>
+    <div class="grid-4" data-articles></div>
+  </div>
+</section>
+</main>
+<div data-component="footer"></div>
+<script src="js/core.js" defer></script>
+<script src="js/data/products.js" defer></script>
+<script src="js/components/icons.js" defer></script>
+<script src="js/components/product-media.js" defer></script>
+<script src="js/components/toast.js" defer></script>
+<script src="js/components/modal.js" defer></script>
+<script src="js/modules/store.js" defer></script>
+<script src="js/modules/forms.js" defer></script>
+<script src="js/components/product-card.js" defer></script>
+<script src="js/components/vehicle-selector.js" defer></script>
+<script src="js/components/header.js" defer></script>
+<script src="js/modules/home.js" defer></script>
+<script src="js/modules/catalog.js" defer></script>
+<script src="js/modules/product.js" defer></script>
+<script src="js/modules/cart.js" defer></script>
+<script src="js/modules/checkout.js" defer></script>
+<script src="js/modules/booking.js" defer></script>
+<script src="js/modules/pages-misc.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>

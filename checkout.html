@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sifarişin rəsmiləşdirilməsi — Zapçast.az</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Əlaqə məlumatları, çatdırılma və ya filialdan götürmə, servis və ödəniş üsulu.">
+<link rel="canonical" href="https://zapcast.az/checkout.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zapçast.az">
+<meta property="og:title" content="Sifarişin rəsmiləşdirilməsi — Zapçast.az">
+<meta property="og:description" content="Əlaqə məlumatları, çatdırılma və ya filialdan götürmə, servis və ödəniş üsulu.">
+<meta property="og:url" content="https://zapcast.az/checkout.html">
+<meta property="og:locale" content="az_AZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2718%27 fill=%27%230B1220%27 stroke=%27%23FF5A1F%27 stroke-width=%273%27/%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%277%27 fill=%27%23F2F5F8%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div data-component="header"></div>
+<main id="main" data-page="checkout" tabindex="-1">
+<div class="container">
+  <div class="page-head">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Ana səhifə</a></li><li><a href="cart.html">Səbət</a></li><li><span aria-current="page">Sifarişin rəsmiləşdirilməsi</span></li></ol></nav>
+    <div class="page-head__title"><h1>Sifarişin rəsmiləşdirilməsi</h1></div>
+  </div>
+  <div class="notice notice--demo"><span data-icon="info" data-size="18"></span><span>Demo checkout: məlumatlar heç yerə göndərilmir, real ödəniş aparılmır.</span></div>
+  <div class="empty" data-co-empty hidden>
+    <span class="empty__icon"><span data-icon="cart" data-size="30"></span></span><h2>Səbət boşdur</h2><p>Sifariş vermək üçün əvvəlcə məhsul əlavə edin.</p>
+    <a class="btn btn--primary" href="catalog.html">Kataloqa keç</a>
+  </div>
+  <div class="co-layout section--tight" data-co-layout>
+    <div>
+      <ol class="co-steps" aria-label="Sifariş addımları">
+        <li><button type="button" data-goto="1"><span class="step-num">1</span><span class="co-steps__label">Əlaqə</span></button></li><li><button type="button" data-goto="2"><span class="step-num">2</span><span class="co-steps__label">Çatdırılma</span></button></li><li><button type="button" data-goto="3"><span class="step-num">3</span><span class="co-steps__label">Servis</span></button></li><li><button type="button" data-goto="4"><span class="step-num">4</span><span class="co-steps__label">Ödəniş</span></button></li>
+      </ol>
+      <form id="checkout-form" novalidate>
+        <section class="co-panel panel" data-step="1" aria-labelledby="st1">
+          <h2 class="panel__title" id="st1">Əlaqə məlumatları</h2>
+          <div class="form-grid">
+            <div class="field span-2"><label for="co-name">Ad və soyad<span class="req">*</span></label><input class="input" id="co-name" name="name" required minlength="3" autocomplete="name"></div>
+            <div class="field"><label for="co-phone">Telefon<span class="req">*</span></label><input class="input" id="co-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+994 50 123 45 67"></div>
+            <div class="field"><label for="co-email">E-mail<span class="req">*</span></label><input class="input" id="co-email" name="email" type="email" required autocomplete="email" placeholder="ad@domen.az"></div>
+          </div>
+          <div class="co-nav"><span></span><button type="button" class="btn btn--primary btn--lg" data-next>Davam et <span data-icon="arrow-right" data-size="18"></span></button></div>
+        </section>
+
+        <section class="co-panel panel" data-step="2" aria-labelledby="st2" hidden>
+          <h2 class="panel__title" id="st2">Çatdırılma üsulu</h2>
+          <fieldset class="stack-sm"><legend class="sr-only">Çatdırılma üsulu</legend>
+            <div class="choice-grid">
+              <label class="choice"><input type="radio" name="method" value="address" required checked><span class="choice__body"><span class="choice__title">Ünvana çatdırılma</span><span class="choice__meta">10 ₼, 300 ₼-dan yuxarı pulsuz (demo)</span></span></label>
+              <label class="choice"><input type="radio" name="method" value="pickup" required><span class="choice__body"><span class="choice__title">Filialdan götürmə</span><span class="choice__meta">Pulsuz · hazır olanda bildiriş</span></span></label>
+            </div>
+          </fieldset>
+          <div class="form-grid" data-when="address">
+            <div class="field"><label for="co-city">Şəhər<span class="req">*</span></label><select class="select" id="co-city" name="city" required><option value="">Seçin</option><option>Bakı</option><option>Sumqayıt</option><option>Gəncə</option><option>Digər</option></select></div>
+            <div class="field"><label for="co-address">Ünvan<span class="req">*</span></label><input class="input" id="co-address" name="address" required minlength="5" autocomplete="street-address" placeholder="Küçə, ev, mənzil"></div>
+            <div class="field span-2"><label for="co-note">Kuryer üçün qeyd <span class="opt">(istəyə bağlı)</span></label><textarea class="textarea" id="co-note" name="note"></textarea></div>
+          </div>
+          <fieldset class="stack-sm" data-when="pickup" hidden><legend class="field__label">Filial seçin<span class="req">*</span></legend>
+            <div class="choice-grid" data-branch-choices></div>
+          </fieldset>
+          <div class="co-nav"><button type="button" class="btn btn--ghost" data-prev><span data-icon="chevron-left" data-size="18"></span>Geri</button><button type="button" class="btn btn--primary btn--lg" data-next>Davam et <span data-icon="arrow-right" data-size="18"></span></button></div>
+        </section>
+
+        <section class="co-panel panel" data-step="3" aria-labelledby="st3" hidden>
+          <h2 class="panel__title" id="st3">Servis xidməti <span class="opt muted">(istəyə bağlı)</span></h2>
+          <label class="check"><input type="checkbox" id="co-add-service" name="addService">Məhsulu filialda quraşdırmaq üçün vaxt seçmək istəyirəm</label>
+          <div class="stack" data-when="service" hidden>
+            <fieldset class="stack-sm"><legend class="field__label">Xidmətlər</legend><div class="svc-checks" data-co-services></div></fieldset>
+            <div class="form-grid">
+              <div class="field span-2" data-when="svc-branch"><label for="co-svc-branch">Servis filialı<span class="req">*</span></label><select class="select" id="co-svc-branch" name="svcBranch" required></select></div>
+              <div class="field"><label for="co-svc-date">Tarix<span class="req">*</span></label><select class="select" id="co-svc-date" name="svcDate" required></select></div>
+              <div class="field"><label for="co-svc-time">Saat<span class="req">*</span></label><select class="select" id="co-svc-time" name="svcTime" required></select></div>
+            </div>
+            <p class="field-hint">Servis qiyməti filialda dəqiqləşdirilir. Filialdan götürmə seçmisinizsə, servis həmin filialda olacaq.</p>
+          </div>
+          <div class="co-nav"><button type="button" class="btn btn--ghost" data-prev><span data-icon="chevron-left" data-size="18"></span>Geri</button><button type="button" class="btn btn--primary btn--lg" data-next>Davam et <span data-icon="arrow-right" data-size="18"></span></button></div>
+        </section>
+
+        <section class="co-panel panel" data-step="4" aria-labelledby="st4" hidden>
+          <h2 class="panel__title" id="st4">Ödəniş üsulu</h2>
+          <fieldset class="stack-sm"><legend class="sr-only">Ödəniş üsulu</legend>
+            <div class="stack-sm">
+              <label class="choice"><input type="radio" name="payment" value="card" required checked><span class="choice__body"><span class="choice__title">Bank kartı ilə onlayn</span><span class="choice__meta">Real inteqrasiyada kart məlumatları bankın təhlükəsiz səhifəsində daxil ediləcək</span></span><span data-icon="card" data-size="22"></span></label>
+              <label class="choice"><input type="radio" name="payment" value="cash" required><span class="choice__body"><span class="choice__title">Nağd və ya kartla — təhvil zamanı</span><span class="choice__meta">Kuryerə və ya filialda ödəniş</span></span><span data-icon="cash" data-size="22"></span></label>
+              <label class="choice"><input type="radio" name="payment" value="installment" required><span class="choice__body"><span class="choice__title">Taksit</span><span class="choice__meta">Şərtlər bank tərəfdaşı ilə dəqiqləşəcək</span></span><span data-icon="percent" data-size="22"></span></label>
+            </div>
+          </fieldset>
+          <div class="notice notice--demo"><span data-icon="info" data-size="18"></span><span>Bu addımda kart məlumatı istənmir — ödəniş yalnız interfeys nümunəsidir.</span></div>
+          <label class="check"><input type="checkbox" name="terms" id="co-terms" required>Satış şərtləri və məxfilik siyasəti ilə tanış oldum və razıyam (demo mətn)</label>
+          <div class="co-nav"><button type="button" class="btn btn--ghost" data-prev><span data-icon="chevron-left" data-size="18"></span>Geri</button><button type="submit" class="btn btn--primary btn--lg"><span data-icon="check" data-size="18"></span>Sifarişi təsdiqlə</button></div>
+        </section>
+      </form>
+    </div>
+    <aside class="summary panel" aria-labelledby="co-sum">
+      <h2 class="panel__title" id="co-sum">Sifarişiniz</h2>
+      <div data-co-items></div>
+      <div class="summary__rows" data-co-rows></div>
+      <div class="summary-row summary-row--total"><span>Cəmi</span><span data-co-total aria-live="polite"></span></div>
+      <a class="link" href="cart.html">Səbəti redaktə et</a>
+    </aside>
+  </div>
+  <div data-co-success hidden></div>
+</div>
+</main>
+<div data-component="footer"></div>
+<script src="js/core.js" defer></script>
+<script src="js/data/products.js" defer></script>
+<script src="js/components/icons.js" defer></script>
+<script src="js/components/product-media.js" defer></script>
+<script src="js/components/toast.js" defer></script>
+<script src="js/components/modal.js" defer></script>
+<script src="js/modules/store.js" defer></script>
+<script src="js/modules/forms.js" defer></script>
+<script src="js/components/product-card.js" defer></script>
+<script src="js/components/vehicle-selector.js" defer></script>
+<script src="js/components/header.js" defer></script>
+<script src="js/modules/home.js" defer></script>
+<script src="js/modules/catalog.js" defer></script>
+<script src="js/modules/product.js" defer></script>
+<script src="js/modules/cart.js" defer></script>
+<script src="js/modules/checkout.js" defer></script>
+<script src="js/modules/booking.js" defer></script>
+<script src="js/modules/pages-misc.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>

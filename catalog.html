@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kataloq — Zapçast.az</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Təkər, akkumulyator, disk, mühərrik yağı və ehtiyat hissələri: ölçü, mövsüm, brend və qiymət filtrləri ilə.">
+<link rel="canonical" href="https://zapcast.az/catalog.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zapçast.az">
+<meta property="og:title" content="Kataloq — Zapçast.az">
+<meta property="og:description" content="Təkər, akkumulyator, disk, mühərrik yağı və ehtiyat hissələri: ölçü, mövsüm, brend və qiymət filtrləri ilə.">
+<meta property="og:url" content="https://zapcast.az/catalog.html">
+<meta property="og:locale" content="az_AZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2718%27 fill=%27%230B1220%27 stroke=%27%23FF5A1F%27 stroke-width=%273%27/%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%277%27 fill=%27%23F2F5F8%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div data-component="header"></div>
+<main id="main" data-page="catalog" tabindex="-1">
+<div class="container">
+  <div class="page-head">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Ana səhifə</a></li><li><a href="catalog.html">Kataloq</a></li><li><span aria-current="page" data-crumb-current>Kataloq</span></li></ol></nav>
+    <div class="page-head__title"><h1 data-cat-title>Kataloq</h1><span class="page-head__count" data-cat-count aria-live="polite"></span></div>
+  </div>
+  <div class="cat-tabs" data-cat-tabs role="group" aria-label="Kateqoriyalar"></div>
+  <div class="catalog-layout">
+    <aside class="filters" id="filters" aria-label="Filtrlər">
+      <div class="filters__head">
+        <h2>Filtrlər</h2>
+        <button type="button" class="btn btn--ghost btn--sm" data-clear>Təmizlə</button>
+        <button type="button" class="icon-btn filters__close" data-close-filters aria-label="Filtrləri bağla"><span data-icon="close" data-size="22"></span></button>
+      </div>
+      <div class="filters__scroll" data-filter-body></div>
+      <div class="filters__foot">
+        <button type="button" class="btn btn--outline" data-clear>Təmizlə</button>
+        <button type="button" class="btn btn--primary" data-close-filters data-apply-count>Nəticələri göstər</button>
+      </div>
+    </aside>
+    <div class="filters-overlay" data-filters-overlay hidden></div>
+    <div class="catalog-main">
+      <div class="toolbar">
+        <button type="button" class="btn btn--outline toolbar__filter-btn" data-open-filters aria-controls="filters" aria-expanded="false"><span data-icon="filter" data-size="18"></span>Filtrlər</button>
+        <div class="toolbar__chips chip-row" data-active-chips aria-label="Aktiv filtrlər"></div>
+        <div class="toolbar__sort"><label for="sort">Sırala:</label><select class="select" id="sort"></select></div>
+      </div>
+      <div class="product-grid product-grid--3" data-catalog-grid></div>
+      <div class="empty" data-catalog-empty hidden>
+        <span class="empty__icon"><span data-icon="search" data-size="28"></span></span>
+        <h2>Uyğun məhsul tapılmadı</h2>
+        <p>Filtrləri azaldın.</p>
+        <div class="cluster"><button type="button" class="btn btn--primary" data-clear>Filtrləri təmizlə</button><a class="btn btn--outline" href="index.html">Ölçüyə görə axtar</a></div>
+      </div>
+      <div class="load-more" data-load-more hidden>
+        <span class="load-more__meta" data-more-meta></span>
+        <span class="load-more__bar" aria-hidden="true"><span data-more-bar></span></span>
+        <button type="button" class="btn btn--outline btn--lg">Daha çox göstər</button>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+<div data-component="footer"></div>
+<script src="js/core.js" defer></script>
+<script src="js/data/products.js" defer></script>
+<script src="js/components/icons.js" defer></script>
+<script src="js/components/product-media.js" defer></script>
+<script src="js/components/toast.js" defer></script>
+<script src="js/components/modal.js" defer></script>
+<script src="js/modules/store.js" defer></script>
+<script src="js/modules/forms.js" defer></script>
+<script src="js/components/product-card.js" defer></script>
+<script src="js/components/vehicle-selector.js" defer></script>
+<script src="js/components/header.js" defer></script>
+<script src="js/modules/home.js" defer></script>
+<script src="js/modules/catalog.js" defer></script>
+<script src="js/modules/product.js" defer></script>
+<script src="js/modules/cart.js" defer></script>
+<script src="js/modules/checkout.js" defer></script>
+<script src="js/modules/booking.js" defer></script>
+<script src="js/modules/pages-misc.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>

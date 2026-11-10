@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Səbət — Zapçast.az</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Səbətdəki məhsullar, kupon və sifariş xülasəsi.">
+<link rel="canonical" href="https://zapcast.az/cart.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zapçast.az">
+<meta property="og:title" content="Səbət — Zapçast.az">
+<meta property="og:description" content="Səbətdəki məhsullar, kupon və sifariş xülasəsi.">
+<meta property="og:url" content="https://zapcast.az/cart.html">
+<meta property="og:locale" content="az_AZ">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%2718%27 fill=%27%230B1220%27 stroke=%27%23FF5A1F%27 stroke-width=%273%27/%3E%3Ccircle cx=%2720%27 cy=%2720%27 r=%277%27 fill=%27%23F2F5F8%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div data-component="header"></div>
+<main id="main" data-page="cart" tabindex="-1">
+<div class="container">
+  <div class="page-head">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Ana səhifə</a></li><li><span aria-current="page">Səbət</span></li></ol></nav>
+    <div class="page-head__title"><h1>Səbət</h1><span class="page-head__count" data-cart-heading-count></span></div>
+  </div>
+  <div class="cart-layout" data-cart-layout hidden>
+    <section aria-label="Səbətdəki məhsullar"><div class="cart-lines" data-cart-lines></div></section>
+    <aside class="summary panel" aria-labelledby="sum-title">
+      <h2 id="sum-title" class="panel__title">Sifariş xülasəsi</h2>
+      <form class="coupon" data-coupon-form novalidate>
+        <div class="field"><label class="sr-only" for="coupon">Kupon kodu</label><input class="input" id="coupon" name="coupon" placeholder="Kupon kodu" autocomplete="off"></div>
+        <button class="btn btn--outline" type="submit">Tətbiq et</button>
+      </form>
+      <p class="field-hint">Demo kodlar: <span class="mono">DEMO10</span>, <span class="mono">QISH25</span> · <button type="button" class="link-btn" data-coupon-remove hidden>Kuponu sil</button></p>
+      <div class="summary__rows" data-cart-rows></div>
+      <div class="summary-row summary-row--total"><span>Cəmi</span><span data-cart-total aria-live="polite"></span></div>
+      <a class="btn btn--primary btn--lg btn--block" href="checkout.html">Sifarişi rəsmiləşdir <span data-icon="arrow-right" data-size="18"></span></a>
+      <a class="btn btn--ghost btn--block" href="catalog.html">Alış-verişə davam et</a>
+      <div class="notice notice--demo"><span data-icon="info" data-size="18"></span><span>Prototip: qiymətlər nümunədir, ödəniş alınmır.</span></div>
+    </aside>
+  </div>
+  <div class="empty" data-cart-empty hidden>
+    <span class="empty__icon"><span data-icon="cart" data-size="30"></span></span>
+    <h2>Səbətiniz boşdur</h2>
+    <p>Avtomobilinizə uyğun təkər, akkumulyator və ya yağı bir neçə kliklə tapın.</p>
+    <div class="cluster"><a class="btn btn--primary" href="index.html"><span data-icon="search" data-size="18"></span>Məhsul tap</a><a class="btn btn--outline" href="catalog.html">Kataloqa bax</a></div>
+  </div>
+  <section class="cart-cross" aria-labelledby="cross-title">
+    <div class="section-head"><div class="section-head__text"><h2 id="cross-title">Bunlar da lazım ola bilər</h2></div></div>
+    <div class="product-grid" data-cart-cross></div>
+  </section>
+</div>
+</main>
+<div data-component="footer"></div>
+<script src="js/core.js" defer></script>
+<script src="js/data/products.js" defer></script>
+<script src="js/components/icons.js" defer></script>
+<script src="js/components/product-media.js" defer></script>
+<script src="js/components/toast.js" defer></script>
+<script src="js/components/modal.js" defer></script>
+<script src="js/modules/store.js" defer></script>
+<script src="js/modules/forms.js" defer></script>
+<script src="js/components/product-card.js" defer></script>
+<script src="js/components/vehicle-selector.js" defer></script>
+<script src="js/components/header.js" defer></script>
+<script src="js/modules/home.js" defer></script>
+<script src="js/modules/catalog.js" defer></script>
+<script src="js/modules/product.js" defer></script>
+<script src="js/modules/cart.js" defer></script>
+<script src="js/modules/checkout.js" defer></script>
+<script src="js/modules/booking.js" defer></script>
+<script src="js/modules/pages-misc.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
