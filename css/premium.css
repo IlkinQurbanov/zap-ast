@@ -1,0 +1,207 @@
+/* ============================================================================
+   ZAPÇAST · PREMIUM VISUAL EDITION
+   Non-destructive enhancement of the existing storefront.
+   Designed to preserve original page structure / all existing interactions.
+   Photography used here is illustrative art; demo product data remains demo.
+   ============================================================================ */
+:root {
+  --premium-ink: #101820;
+  --premium-yellow: #ffc928;
+  --premium-muted: #68737e;
+  --premium-border: #e7ebef;
+}
+body { background: #fdfdfd; }
+.section-head h2, .section-head__text h2 { letter-spacing: -.045em; }
+
+/* Stronger photo-led merchandising, no change to card links or cart actions. */
+.pcard {
+  border: 1px solid var(--premium-border);
+  border-radius: 17px;
+  overflow: hidden;
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+  background: white;
+}
+.pcard:hover {
+  transform: translateY(-4px);
+  border-color: #d4dce2;
+  box-shadow: 0 15px 35px rgba(18, 26, 36, .11);
+}
+.pcard__media { background: radial-gradient(circle at 50% 16%, #ffffff 0%, #f6f7f9 58%, #eceff3 100%); overflow: hidden; padding: 12px; }
+.pcard__media .media-img { width: 100%; height: 100%; object-fit: contain; object-position: center center; transition: transform .42s ease; }
+.pcard:hover .pcard__media .media-img { transform: scale(1.025); }
+.pcard__fav { z-index: 2; }
+.pcard__title a { text-decoration-thickness: 1px; }
+
+/* Home: large photographic art direction with text and finder on dark overlay. */
+.hero {
+  --band-text: #fff;
+  --band-muted: #d7dde4;
+  --band-line: rgba(255,255,255,.24);
+  background-color: #0b121a;
+  background-image: linear-gradient(90deg, rgba(8,13,19,.98) 0%, rgba(8,13,19,.93) 24%, rgba(8,13,19,.67) 48%, rgba(8,13,19,.13) 100%), url('../assets/images/premium/hero-night.webp');
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  transition: background-image .4s ease;
+}
+.hero[data-tone='yellow'] {
+  --band-text: #fff;
+  --band-muted: #d7dde4;
+  --band-line: rgba(255,255,255,.24);
+  background-image: linear-gradient(90deg, rgba(8,13,19,.98) 0%, rgba(8,13,19,.91) 24%, rgba(8,13,19,.66) 48%, rgba(8,13,19,.12) 100%), url('../assets/images/premium/hero-night.webp');
+}
+.hero[data-tone='sky'] {
+  --band-text: #fff;
+  --band-muted: #d7dde4;
+  --band-line: rgba(255,255,255,.24);
+  background-image: linear-gradient(90deg, rgba(8,13,19,.98) 0%, rgba(8,13,19,.91) 24%, rgba(8,13,19,.60) 50%, rgba(8,13,19,.13) 100%), url('../assets/images/premium/hero-performance.webp');
+}
+.hero[data-tone='grey'] {
+  --band-text: #fff;
+  --band-muted: #d7dde4;
+  --band-line: rgba(255,255,255,.24);
+  background-image: linear-gradient(90deg, rgba(8,13,19,.99) 0%, rgba(8,13,19,.96) 30%, rgba(8,13,19,.60) 59%, rgba(8,13,19,.14) 100%), url('../assets/images/premium/hero-collection.webp');
+}
+.hero[data-tone='mint'] {
+  --band-text: #fff;
+  --band-muted: #d7dde4;
+  --band-line: rgba(255,255,255,.24);
+  background-image: linear-gradient(90deg, rgba(8,13,19,.98) 0%, rgba(8,13,19,.92) 30%, rgba(8,13,19,.58) 59%, rgba(8,13,19,.14) 100%), url('../assets/images/premium/hero-studio.webp');
+}
+.hero__inner { grid-template-columns: minmax(0, 620px) minmax(0, 1fr); min-height: 730px; padding-block: 54px 56px; }
+.hero__copy { position: relative; z-index: 1; }
+.hero__visual--cinematic { display: block; min-height: 1px; pointer-events: none; }
+.hero .eyebrow, .hero[data-tone='yellow'] .eyebrow {
+  background: rgba(255, 201, 40, .14);
+  color: #ffd24a;
+  border: 1px solid rgba(255,201,40,.36);
+  padding: 7px 11px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+}
+.hero h1, .hero .slide__title {
+  color: #fff;
+  max-width: 16ch;
+  letter-spacing: -.052em;
+  line-height: 1.06;
+  text-wrap: balance;
+  text-shadow: 0 8px 35px rgba(0,0,0,.12);
+}
+.hero .hero__lede { color: #e0e6ec; max-width: 49ch; text-wrap: pretty; }
+.hero .hero__trust { color: #e6edf4; }
+.hero .hero__trust svg, .hero[data-tone='yellow'] .hero__trust svg { color: #ffc928; }
+.hero .btn--primary, .hero[data-tone='yellow'] .btn--primary, .hero .btn--dark {
+  background: var(--premium-yellow); color: #0e141b; border-color: transparent; font-weight: 800;
+}
+.hero .btn--on-band { background: rgba(255,255,255,.1); color: white; border: 1px solid rgba(255,255,255,.38); backdrop-filter: blur(6px); }
+.hero .btn--on-band:hover { background: rgba(255,255,255,.22); }
+.hero .slider__btn, .hero[data-tone='yellow'] .slider__btn { color: #fff; background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.28); }
+.hero .slider__dots button { background: rgba(255,255,255,.3); }
+.hero .slider__dots button[aria-current='true'], .hero[data-tone='yellow'] .slider__dots button[aria-current='true'] { background: var(--premium-yellow); }
+.hero .slider__count { color: #dbe4eb; }
+.hero .finder { background: rgba(255,255,255,.985); border: 1px solid rgba(255,255,255,.76); border-radius: 19px; box-shadow: 0 22px 65px rgba(0,0,0,.34); }
+.hero .finder .btn--primary { background: #111820; color: white; }
+.hero .finder .btn--primary:hover { background: #313b45; }
+
+/* Category thumbnails use dedicated studio photography; the titles remain clear. */
+.bento { gap: 14px; }
+.bento .bento__tile { border: 1px solid #e4e9ee; border-radius: 15px; overflow: hidden; transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease; }
+.bento .bento__tile:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(13,22,32,.10); border-color: #cbd4dd; }
+.bento .bento__media { padding: 0; background: #141a20; overflow: hidden; }
+.bento .bento__media img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.05); transition: transform .5s ease; }
+.bento .bento__tile:hover .bento__media img { transform: scale(1.075); }
+.bento .bento__text { padding: 14px 14px 16px; }
+.bento .bento__name { font-size: var(--fs-md); letter-spacing: -.02em; }
+.bento .bento__meta { margin-top: 3px; }
+
+/* Photographic seasonal and B2B banners. */
+.promo {
+  position: relative; display: block; isolation: isolate; min-height: 440px;
+  border-radius: 21px; color: white;
+  background: #0b1118 url('../assets/images/premium/hero-performance.webp') center center / cover no-repeat;
+  overflow: hidden;
+  box-shadow: 0 17px 45px rgba(12,22,31,.10);
+}
+.promo::before {
+  display: block; content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(6,13,23,.98) 0%, rgba(6,13,23,.93) 32%, rgba(6,13,23,.55) 64%, rgba(6,13,23,.06) 100%);
+}
+.promo__copy { position: relative; z-index: 1; width: min(750px, 69%); padding: 52px clamp(24px, 5vw, 67px); }
+.promo__copy h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.65rem); letter-spacing: -.045em; }
+.promo__copy p { color: #e0e7ee; }
+.promo__copy .eyebrow { color: #ffd24a; background: rgba(255,201,40,.12); border-radius: 50px; border: 1px solid rgba(255,201,40,.22); }
+.promo__fact b { color: #fff; }
+.promo__fact span { color: #cbd7df; }
+.promo__art { display: none; }
+.promo .btn--on-band { color: white; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.35); }
+.promo .btn--primary { background: #ffc928; color: #12171c; }
+.b2b-banner {
+  background: linear-gradient(90deg, rgba(11,18,25,.98) 0%,rgba(11,18,25,.91) 50%,rgba(11,18,25,.34) 100%), url('../assets/images/premium/hero-night.webp') center 55% / cover;
+  color: white; border: 0; border-radius: 19px; min-height: 250px;
+  padding-block: 40px;
+}
+.b2b-banner h2, .b2b-banner .b2b-banner__list { color: white; }
+.b2b-banner .eyebrow { background: rgba(255,201,40,.13); color: #ffd24a; border-radius: 30px; }
+.b2b-banner .b2b-banner__list svg { color: #ffc928; }
+.b2b-banner .btn--ink { background: #ffc928; color: #12171c; }
+
+/* Journal and video covers now have imagery instead of generic SVG icons. */
+.article-card, .video-card { border: 1px solid #e4e9ee; border-radius: 17px; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
+.article-card:hover, .video-card:hover { transform: translateY(-4px); box-shadow: 0 15px 34px rgba(13,22,31,.12); }
+.article-card__cover { display: block; aspect-ratio: 16/10; overflow: hidden; background: #161c23; }
+.article-card__cover img, .video-card__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+.article-card:hover .article-card__cover img, .video-card:hover .video-card__thumb img { transform: scale(1.055); }
+.article-card__body { padding: 18px; }
+.video-card__thumb { border-radius: 0; background: #0b131a; }
+.video-card__thumb img { position: absolute; inset: 0; }
+.video-card__thumb::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(0deg, rgba(0,0,0,.32), transparent 72%); }
+.video-card__play { z-index: 1; background: #ffc928; box-shadow: 0 5px 30px rgba(0,0,0,.26); }
+.video-card__time { z-index: 1; }
+
+/* Better tactile polish elsewhere. */
+.btn--primary { transition: background .2s ease, transform .2s ease; }
+.btn--primary:hover { transform: translateY(-1px); }
+.brand-tile { border-radius: 12px; transition: box-shadow .2s ease, transform .2s ease; }
+.brand-tile:hover { transform: translateY(-2px); box-shadow: 0 9px 20px rgba(15,24,31,.08); }
+
+@media (max-width: 1100px) {
+  .hero__inner { display: block; }
+  .hero__copy { width: min(650px, 100%); }
+  .hero__visual--cinematic { display: none; }
+  .hero { background-position: 58% center; }
+  .hero[data-tone] { background-position: 58% center; }
+  .hero[data-tone] { background-blend-mode: normal; }
+  .promo__copy { width: min(720px, 82%); }
+}
+@media (max-width: 767px) {
+  .hero, .hero[data-tone] {
+    background-position: 64% center;
+    background-color: #0b121a;
+  }
+  .hero__inner { min-height: 0; padding-block: 38px 42px; }
+  .hero h1, .hero .slide__title { font-size: clamp(1.85rem, 7vw, 2.7rem); max-width: 20ch; }
+  .hero .hero__lede { font-size: .97rem; }
+  .hero .finder { padding: 14px; border-radius: 15px; }
+  .hero .hero__trust { font-size: 12px; }
+  .bento .bento__media { aspect-ratio: 1.06; }
+  .bento .bento__text { padding: 10px 11px 13px; }
+  .bento .bento__name { font-size: 13px; }
+  .promo { min-height: 0; background-position: 70% center; }
+  .promo::before { background: linear-gradient(90deg,rgba(6,13,23,.98),rgba(6,13,23,.77)); }
+  .promo__copy { width: 100%; padding: 30px 20px; }
+  .promo__facts { gap: 15px; }
+  .promo__fact b { font-size: 1.3rem; }
+  .b2b-banner { background-position: 70% center; }
+  .article-card__body { padding: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pcard, .bento .bento__tile, .article-card, .video-card,
+  .pcard__media .media-img, .bento .bento__media img { transition: none; }
+}
+
+
+/* Product Studio 2.0 — the refreshed 800px catalogue photographs are exported
+   into the same paths used by homepage, catalogue and product detail views. */
+.pcard__media { background: #f7f9fb; border-bottom: 1px solid rgba(24,40,57,.035); }
+.pcard__media .media-img { image-rendering: auto; filter: contrast(1.025) saturate(1.025); }
+.pcard:hover .pcard__media .media-img { filter: contrast(1.05) saturate(1.045); }

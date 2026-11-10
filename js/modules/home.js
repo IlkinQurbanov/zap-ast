@@ -97,20 +97,20 @@
   }
 
   function initSections() {
-    const art = TP.$("[data-winter-art]");
-    if (art) art.innerHTML = TP.winterArt();
-
     const cats = TP.$("[data-categories]");
     if (cats) {
+      // Category photography is intentionally separate from demo product artwork.
+      const CATEGORY_PHOTOS = Object.fromEntries(
+        ["tyres", "batteries", "oils", "rims", "parts", "brakes", "services"].map((c) =>
+          [c, `assets/images/premium/categories/${c}.webp`])
+      );
       // Bento layout: the three core categories get large tiles with product art
       const LAYOUT = { tyres: ["xl", "t2"], batteries: ["wide", "b4"], oils: ["wide", "o5"], rims: ["sm", "r1"], parts: ["sm", "p1"], brakes: ["sm", "p2"], services: ["sm-ink"] };
       cats.innerHTML = TP.data.categories.map((c) => {
         const [size, sample] = LAYOUT[c.id] || ["sm"];
         const n = c.id === "services" ? TP.data.services.length : TP.data.products.filter((p) => p.category === c.id).length;
         const meta = c.id === "services" ? `${n} xidmət · onlayn rezervasiya` : `${n} məhsul`;
-        const art = sample
-          ? `<span class="bento__media" aria-hidden="true">${TP.media(TP.data.byId(sample))}</span>`
-          : `<span class="bento__media bento__media--icon" aria-hidden="true">${TP.icon(c.icon, 48)}</span>`;
+        const art = `<span class="bento__media" aria-hidden="true"><img src="${CATEGORY_PHOTOS[c.id]}" alt="" loading="lazy" decoding="async"></span>`;
         return `<a class="bento__tile bento__tile--${size}" href="${c.href}">
           <span class="bento__text"><span class="bento__icon">${TP.icon(c.icon, 22)}</span><span class="bento__name">${esc(c.name)}</span><span class="bento__meta">${meta}</span></span>
           <span class="bento__go" aria-hidden="true">${TP.icon("arrow-right", 18)}</span>${art}
@@ -163,7 +163,7 @@
     if (vids) {
       vids.innerHTML = TP.data.videos.map((v) => `
         <button type="button" class="video-card" data-video="${esc(v.id)}">
-          <span class="video-card__thumb">${TP.icon(v.icon, 64)}<span class="video-card__play">${TP.icon("play", 22)}</span><span class="video-card__time mono">${esc(v.duration)}</span></span>
+          <span class="video-card__thumb"><img src="assets/images/premium/editorial/${({ v1: "video-tyres", v2: "video-season", v3: "video-service" })[v.id] || "size"}.webp" alt="" loading="lazy" decoding="async"><span class="video-card__play">${TP.icon("play", 22)}</span><span class="video-card__time mono">${esc(v.duration)}</span></span>
           <span class="video-card__title">${esc(v.title)}</span>
         </button>`).join("");
       const openVideo = (v) => TP.modal({ title: v ? v.title : "Video", content: `<div class="stack"><div class="video-placeholder">${TP.icon("youtube", 48)}<span>Video tezliklə əlavə olunacaq</span></div><div class="notice notice--demo">${TP.icon("info", 18)}<span>Prototipdə xarici video pleyerlər qoşulmayıb. Real video linkləri əlavə ediləndə burada açılacaq.</span></div></div>`, wide: true });
@@ -194,7 +194,7 @@
     if (blog) {
       blog.innerHTML = TP.data.articles.map((a) => `
         <button type="button" class="article-card" data-article="${esc(a.id)}">
-          <span class="article-card__cover">${TP.icon(a.icon, 80)}</span>
+          <span class="article-card__cover"><img src="assets/images/premium/editorial/${a.id}.webp" alt="" loading="lazy" decoding="async"></span>
           <span class="article-card__body"><span class="article-card__title">${esc(a.title)}</span><span class="article-card__text">${esc(a.excerpt)}</span><span class="article-card__more">Oxu ${TP.icon("arrow-right", 16)}</span></span>
         </button>`).join("");
       blog.addEventListener("click", (e) => {

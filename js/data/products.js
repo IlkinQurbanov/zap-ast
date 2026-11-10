@@ -333,10 +333,10 @@
   /* Every product can carry real photos; until then the generated SVG views are used. */
   products.forEach((p) => { if (!Array.isArray(p.images)) p.images = []; });
 
-  /* Product images: studio renders generated per product (label, size and
-     brand match the data). Replace with real photos by editing `images`;
+  /* Product images: premium studio product imagery (visual edition 2), generated from
+     existing demo artwork and concept packshot samples. Replace with verified real photos via `images`;
      a missing file falls back to the SVG illustration automatically. */
-  products.forEach((p) => { if (!p.images.length) p.images = [`assets/images/products/${p.id}.webp`]; });
+  products.forEach((p) => { if (!p.images.length) p.images = [`assets/images/premium/products/${p.id}.webp`]; });
 
   const categories = [
     { id: "tyres", name: "Təkərlər", icon: "tyre", href: "catalog.html?cat=tyres" },
